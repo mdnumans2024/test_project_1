@@ -1,7 +1,7 @@
 name: automate jest tests
 on: push
 jobs: 
-  test: 
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -10,10 +10,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
-       - name: install dependencies
-          run: npm install 
-        - name: run jest tests 
-           run: npm test
-          
-
-          
+      - name:  install dependencies
+        run:  npm install
+      - name: run jest tests
+        run: npm test
+        
+      
