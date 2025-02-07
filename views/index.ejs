@@ -32,11 +32,13 @@
 
             document.getElementById('submitCount').innerHTML = `You have submitted ${count} times`;
 
+
             if(count > 1){
-               throw new Error('You have submitted too many times');
+        document.getElementById('error-message').innerText = 'You have submitted too many times';
+        document.getElementById('error-message').style.display = 'block';
+        return;
             }
-
-
+            
 
             const email = document.getElementById('email').value;
 
@@ -45,8 +47,11 @@
             if(email == "test@example.com" && password == "password123"){
                 alert('Login Successful!')
             } else {
+
+        document.getElementById('error-message').innerText = 'Invalid email or password';
                 document.getElementById('error-message').style.display = 'block';
             }
         });
+        
     </script>    
 </html>

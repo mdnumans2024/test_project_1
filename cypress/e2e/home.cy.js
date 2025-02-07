@@ -44,11 +44,12 @@ describe('Login Page', () =>{
     cy.get('#password').type('password123');
 
     //Act
-    cy.get('#login-button').click();
+    for(var i = 0; i < 3; i++){
+      cy.get('#login-button').click();
+    }
 
     //Assert
-    cy.on('window:alert', (txt) =>{
-      expect(txt).to.contains('Login Successful!')
+    cy.get('#submitCount').should('contain', '1');
+
     });
   });
-});
