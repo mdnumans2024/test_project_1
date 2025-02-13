@@ -14,44 +14,34 @@
             <br />
             <input type="password" id="password" placeholder="password" />
 
-            <button id="login-button" type="submit">Submit</button>
+            <button id="login-button" type="submit" onClick="loginSubmit()">Submit</button>
         </form>
 
-        <p id="error-message" style="color:red;display: none;">Invalid email or password</p>
-        <div id="submitCount"></div>
+       
+       
     </body>
 
     <script>
         var count = 0;
 
-        document.getElementById('login-form').addEventListener('submit', 
-        function(event) {
-            event.preventDefault();
+        function loginSubmit(){
 
-            count++;
-
-            document.getElementById('submitCount').innerHTML = `You have submitted ${count} times`;
+                count++;
 
 
-            if(count > 1){
-        document.getElementById('error-message').innerText = 'You have submitted too many times';
-        document.getElementById('error-message').style.display = 'block';
-        return;
-            }
-            
+                const email = document.getElementById('email').value;
 
-            const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
 
-            const password = document.getElementById('password').value;
+                if(email == "test@example.com" && password == "password123"){
+                    alert('Login Successful!');
+                } else {
+                    alert('Invalid credentials');
+                }
 
-            if(email == "test@example.com" && password == "password123"){
-                alert('Login Successful!')
-            } else {
-
-        document.getElementById('error-message').innerText = 'Invalid email or password';
-                document.getElementById('error-message').style.display = 'block';
-            }
-        });
-        
+                if(count > 1){
+                    throw new Error('You have submitted too many times');
+                }
+         }
     </script>    
 </html>
